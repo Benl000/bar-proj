@@ -33,6 +33,5 @@ async getCocktails({category,cocktailName}) {
   await this.cocktailService.getCocktail(this.filter,cocktailName)
   this.cocktailService.query()
   this.cocktails$ = this.cocktailService.cocktails$
-  
   }
 }

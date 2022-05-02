@@ -41,17 +41,18 @@ export class CocktailService {
     this.query()
   }
 
-  public async getCocktail(filter,cocktailSearch) {
-    try {
+  public getCocktail(filter,cocktailSearch) {
       this.currSearch=(cocktailSearch)?cocktailSearch:this.currSearch
       const cocktails = this.storageService.loadFromStorage(cocktailSearch)
-      if (!cocktails) {
-        const res = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?${filter}=${cocktailSearch}`)
-        this._cocktailsDB = res.data.drinks
-        this.storageService.saveToStorage(cocktailSearch, this._cocktailsDB)
+      if (!cocktails||!cocktails.length) {
+         this.http.get<any>(`https://www.thecocktaildb.com/api/json/v1/1/search.php?${filter}=${cocktailSearch}`)
+       .subscribe(data=>{
+         this._cocktailsDB = data.drinks
+         this.storageService.saveToStorage(cocktailSearch, this._cocktailsDB)
+         this._cocktails$.next(this._cocktailsDB)
+       })
       }else{
         this._cocktailsDB =cocktails
       }
-    } catch (err) { console.log('API of cocktails failed'); }
   }
 }

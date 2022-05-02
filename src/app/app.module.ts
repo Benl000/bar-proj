@@ -26,7 +26,7 @@ import { CocktailSearchBarComponent } from './components/cocktail-search-bar/coc
     CocktailFilterComponent,
     CocktailListComponent,
     CocktailPreviewComponent,
-    CocktailSearchBarComponent
+    CocktailSearchBarComponent,
   ],
   imports: [
     BrowserModule,
