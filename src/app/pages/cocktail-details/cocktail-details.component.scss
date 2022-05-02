@@ -1,0 +1,60 @@
+@import "../../../styles.scss";
+.cocktail-details {
+    display: flex;
+    padding: 20px;
+    justify-content: space-around;
+    &-info {
+        display: flex;
+        width: 50%;
+        flex-direction: column;
+        justify-content: space-between;
+        & button {
+            // width: 100px;
+            color: $clr2;
+            height: 70px;
+            border-radius: 50%;
+            border: 4px solid $clr2;
+            background-color: transparent;
+            position: fixed;
+            font-size: 30px;
+            font-family: cocktail;
+            font-weight: 500;
+        }
+        &__header {
+            display: flex;
+            justify-content: center;
+            & h2 {
+                font-size: 30px;
+                font-family: cocktail;
+                font-weight: 500;
+            }
+        }
+        &__body {
+            text-align: center;
+        }
+        &__footer {
+            display: flex;
+            justify-content: space-evenly;
+        }
+    }
+    &-img {
+        margin: 20px;
+        display: flex;
+        align-items: center;
+        & img {
+            border-radius: 50%;
+            border: 15px double $clr2;
+            width: 20vw;
+            height: 20vw;
+        }
+    }
+    &-ingredient {
+        display: flex;
+        width: 20%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        gap: 20px;
+    }
+}

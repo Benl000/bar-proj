@@ -1,0 +1,9 @@
+@import "../../../styles.scss";
+.app-footer {
+    height: 75px;
+    background-color: $clr1;
+    border-top: 1px solid $clr2;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}

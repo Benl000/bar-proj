@@ -1,0 +1,42 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: $txtDefault;
+    color: $clr2;
+    background-color: $clr1;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+p,
+ul,
+body {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    padding-inline-start: 0;
+}
+
+button {
+    cursor: pointer;
+    text-align: center;
+}

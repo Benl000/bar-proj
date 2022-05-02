@@ -1,0 +1,16 @@
+@import "../../../styles.scss";
+.cocktail-search-bar {
+    display: flex;
+    padding: 10px 0;
+    align-items: center;
+    text-align: center;
+    gap: 5px;
+    border-bottom: 2px solid $clr2;
+    input,
+    button {
+        background-color: transparent;
+        min-width: 40px;
+        height: 30px;
+        color: $clr2;
+    }
+}

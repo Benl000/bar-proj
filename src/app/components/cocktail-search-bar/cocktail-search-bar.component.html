@@ -1,0 +1,18 @@
+<section class="cocktail-search-bar">
+    <section>
+        <input type="text" name="cocktailSearcher" id="cocktailSearcher" #cocktailSearcher>
+        <button (click)="setCocktails('name',cocktailSearcher.value)">search cocktail</button>
+    </section>
+    <section>
+        <h2>popular:</h2>
+        <button class="drinkSearcher" *ngFor="let drink of drinks" (click)="setCocktails('name',drink)">
+            {{drink}}
+        </button>
+    </section>
+    <section>
+        <h2>by letter:</h2>
+        <button class="letterSearcher" *ngFor="let letter of letters" (click)="setCocktails('firstLetter',letter)">
+            {{letter}}
+        </button>
+    </section>
+</section>

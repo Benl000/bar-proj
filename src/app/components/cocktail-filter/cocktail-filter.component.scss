@@ -1,0 +1,15 @@
+@import "../../../styles.scss";
+.cocktail-filter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    input {
+        border: 3px solid $clr2;
+        background-color: transparent;
+        min-width: 50px;
+        height: 30px;
+        color: $clr2;
+        margin: 5px;
+    }
+}
