@@ -1,28 +1,28 @@
 <section class="cocktail-details">
-    <section class="cocktail-details-info">
-        <button (click)="onBack()">
-            <p>‹🍹</p>
-        </button>
-        <div class="cocktail-details-info__header">
-            <h2>{{cocktail.strDrink}}</h2>
-        </div>
-        <div class="cocktail-details-info__body">
-            <h2>Instructions:</h2>
-            <p>{{cocktail.strInstructions}}</p>
-        </div>
-        <div class="cocktail-details-info__footer">
-            <p>{{cocktail.strAlcoholic}}</p>
-            <p>{{cocktail.strGlass}}</p>
-        </div>
+    <div class="back" (click)="onBack()">
+        ‹
+    </div>
+    <section class="cocktail-details-header">
+        <h2>
+            {{cocktail.strDrink}}
+        </h2>
     </section>
-    <section class="cocktail-details-img">
-        <img [src]="cocktail.strDrinkThumb" alt="">
-    </section>
-    <section class="cocktail-details-ingredient">
-        <h2>Ingredients:</h2>
-        <section class="ingredient" *ngFor="let idx of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]">
-            <h2>{{getIngredient(idx)}}</h2>
-            <h3>{{getMeasure(idx)}}</h3>
+    <section class="cocktail-details-body">
+        <section class="cocktail-details-body-ingredient">
+            <h2>Ingredients:</h2>
+            <section class="ingredient" *ngFor="let idx of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]">
+                <h2>{{getIngredient(idx)}}</h2>
+                <h3>{{getMeasure(idx)}}</h3>
+            </section>
         </section>
+        <img class="cocktail-details-body-img" [src]="cocktail.strDrinkThumb" alt="">
+    </section>
+    <section class="cocktail-details-info">
+        <h2>Instructions:</h2>
+        <p>{{cocktail.strInstructions}}</p>
+    </section>
+    <section class="cocktail-details-footer">
+        <p>{{cocktail.strAlcoholic}}</p>
+        <p>{{cocktail.strGlass}}</p>
     </section>
 </section>

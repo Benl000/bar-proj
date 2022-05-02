@@ -1,11 +1,48 @@
 @import "../../../styles.scss";
-.cocktail-search-bar {
+:host {
+    // background-color: aqua;
     display: flex;
-    padding: 10px 0;
+    // // padding: 10px 0;
     align-items: center;
-    text-align: center;
-    gap: 5px;
-    border-bottom: 2px solid $clr2;
+    justify-content: space-around;
+    gap: 10px;
+    // text-align: center;
+    @media (max-width: 900px) {
+        flex-direction: column;
+    }
+    // gap: 5px;
+    // border-bottom: 2px solid $clr2;
+    & .searcherBy {
+        &_Input {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        &_Name {
+            display: flex;
+            align-items: center;
+            & .buttons {
+                padding-left: 10px;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 5px;
+                max-width: 200px;
+                justify-content: center;
+            }
+        }
+        &_Letter {
+            display: flex;
+            align-items: center;
+            & .buttons {
+                padding-left: 10px;
+                max-width: 600px;
+                display: flex;
+                gap: 5px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    }
     input,
     button {
         background-color: transparent;
