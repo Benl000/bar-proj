@@ -31,7 +31,7 @@ export class GameDetailsComponent implements OnInit {
       // console.log(typeof (data['id']));
 
       const gameId = +data['id']
-      this.game = this.gameService.getById(gameId)
+      // this.game = this.gameService.getById(gameId)
     })
     // console.log(x);
 
