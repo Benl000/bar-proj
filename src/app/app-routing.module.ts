@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CocktailDetailsComponent } from './pages/cocktail-details/cocktail-details.component';
+import { GameDetailsComponent } from './pages/game-details/game-details.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
-import { CocktailResolverService } from './service/cocktail-resolver.service';
+import { GameResolverService } from './service/game-resolver.service';
 
 const routes: Routes = [
   {
-    path: 'cocktail/:id',
-    component: CocktailDetailsComponent,
-    resolve: { cocktail: CocktailResolverService }
+    path: 'game/:id',
+    component: GameDetailsComponent,
+    resolve: { game: GameResolverService }
   },
   { path: 'home', component: HomePageComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }

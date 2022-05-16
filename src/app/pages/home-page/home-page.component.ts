@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
-import { Cocktail } from 'src/app/models/cocktail.model';
-import { CocktailService } from 'src/app/service/cocktail.service.service';
+import { Game } from 'src/app/models/game.model';
+import { GameService } from 'src/app/service/game.service.service';
 
 @Component({
   selector: 'home-page',
@@ -10,28 +10,28 @@ import { CocktailService } from 'src/app/service/cocktail.service.service';
 })
 export class HomePageComponent implements OnInit, OnDestroy {
 
-  constructor(private cocktailService: CocktailService) { }
+  constructor(private gameService: GameService) { }
   subscription: Subscription
-  cocktails: Cocktail[]
-  cocktails$: Observable<Cocktail[]>
-  filter:string='s'
+  games: Game[]
+  games$: Observable<Game[]>
+  filter: string = 's'
 
 
-ngOnInit(): void {
-  const search= this.cocktailService.currSearch
-  search? this.getCocktails({category:'s',cocktailName:search}):this.getCocktails({category:'s',cocktailName:''})
-}
+  ngOnInit(): void {
+    const search = this.gameService.currSearch
+    search ? this.getGames({ category: 's', gameName: search }) : this.getGames({ category: 's', gameName: '' })
+  }
 
-ngOnDestroy(): void {
-  // this.subscription?.unsubscribe()
-}
+  ngOnDestroy(): void {
+    // this.subscription?.unsubscribe()
+  }
 
-async getCocktails({category,cocktailName}) {
-  console.log(cocktailName);
-  if (category==='name'){ this.filter='s'}
-  else if (category==='firstLetter'){ this.filter='f'}
-  await this.cocktailService.getCocktail(this.filter,cocktailName)
-  this.cocktailService.query()
-  this.cocktails$ = this.cocktailService.cocktails$
+  async getGames({ category, gameName }) {
+    console.log(gameName);
+    if (category === 'name') { this.filter = 's' }
+    else if (category === 'firstLetter') { this.filter = 'f' }
+    await this.gameService.getGame(this.filter, gameName)
+    this.gameService.query()
+    this.games$ = this.gameService.games$
   }
 }

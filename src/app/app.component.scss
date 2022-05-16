@@ -1,9 +1,6 @@
 @import "../styles.scss";
 .container {
     background: $clr1;
-    // background: -moz-linear-gradient(-45deg, $clr1 0%, $clr4 100%);
-    // background: -webkit-linear-gradient(-45deg, $clr1 0%, $clr4 100%);
-    // background: linear-gradient(135deg, $clr1 0%, $clr4 100%);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,9 +8,6 @@
 }
 
 .page-container {
-    // margin-top: 90px;
     min-height: 80%;
     width: 90%;
-    // box-shadow: 0px 0px 40px 10px rgba($clr2, 0.9);
-    // border: 10px $clr2 double;
 }

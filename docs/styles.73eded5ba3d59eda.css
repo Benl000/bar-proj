@@ -1,1 +1,56 @@
-@font-face{font-family:Cocktails;src:url(ClassyBruneItalicFree.596d2f7c3003a6de.ttf)}@font-face{font-family:Cocktail;src:url(ClassyBruneRegFree.7e1aaebe453f95cf.ttf)}.page-layout{min-height:calc(100vh - 150px)}*{box-sizing:border-box}html{font-family:16px;color:#f5f5f5;background-color:#030303}img{width:100%;height:100%}h1,h2,h3,h4,h5,h6,pre,p,ul,body{margin:0}a{text-decoration:none}ul{margin-block-start:0;margin-block-end:0;padding-inline-start:0}button{cursor:pointer;text-align:center}
+@font-face {
+    font-family: Games;
+    src: url(ClassyBruneItalicFree.596d2f7c3003a6de.ttf)
+}
+
+@font-face {
+    font-family: Game;
+    src: url(ClassyBruneRegFree.7e1aaebe453f95cf.ttf)
+}
+
+.page-layout {
+    min-height: calc(100vh - 150px)
+}
+
+* {
+    box-sizing: border-box
+}
+
+html {
+    font-family: 16px;
+    color: #f5f5f5;
+    background-color: #030303
+}
+
+img {
+    width: 100%;
+    height: 100%
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+p,
+ul,
+body {
+    margin: 0
+}
+
+a {
+    text-decoration: none
+}
+
+ul {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    padding-inline-start: 0
+}
+
+button {
+    cursor: pointer;
+    text-align: center
+}

@@ -1,0 +1,64 @@
+@import "../../../styles.scss";
+:host {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .game-details {
+        display: flex;
+        background-color: rgb(23, 23, 25);
+        width: 50vw;
+        flex-direction: column;
+        align-items: center;
+        padding: 40px 40px 40px 40px;
+        // border: 1px $clr2 solid;
+        gap: 50px;
+        display: flex;
+        & .back {
+            font-size: 70px;
+            font-family: game;
+            cursor: pointer;
+            position: absolute;
+            left: 10%;
+        }
+        &-header {
+            & h2 {
+                border: solid $clr2;
+                border-width: 0 0 1px 1px;
+                font-family: game;
+                font-weight: 500;
+                padding: 10px;
+                font-size: 40px;
+            }
+        }
+        &-body {
+            display: flex;
+            width: 100%;
+            justify-content: space-around;
+            gap: 20px;
+            @media (max-width: 500px) {
+                align-items: center;
+                flex-direction: column-reverse;
+            }
+            &-ingredient {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                justify-content: space-between;
+                width: 20vw;
+            }
+            &-img {
+                width: 20vw;
+                height: 20vw;
+            }
+        }
+        &-info {
+            text-align: center;
+        }
+        &-footer {
+            width: 40vw;
+            display: flex;
+            justify-content: space-evenly;
+        }
+    }
+}

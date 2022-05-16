@@ -1,0 +1,29 @@
+@import "../../../styles.scss";
+.game-preview {
+    display: flex;
+    flex-direction: column;
+    margin: 40px;
+    border: solid $clr2;
+    border-width: 0 0 1px 1px;
+    padding: 10px;
+    cursor: pointer;
+
+    &:hover {
+        position: relative;
+        top: 10px;
+    }
+    & .game-info {
+        display: flex;
+        align-content: center;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        flex-grow: 1;
+        flex-direction: column;
+        & h2 {
+            font-size: 40px;
+            font-family: game;
+            font-weight: 500;
+        }
+    }
+}

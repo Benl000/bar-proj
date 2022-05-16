@@ -1,0 +1,20 @@
+<section class="searcherBy_Input">
+    <input type="text" name="gameSearcher" id="gameSearcher" #gameSearcher>
+    <button (click)="setGames('name',gameSearcher.value)">search game</button>
+</section>
+<section class="searcherBy_Name">
+    <h2>popular:</h2>
+    <section class="buttons">
+        <button class="gameSearcher" *ngFor="let game of games" (click)="setGames('name',game)">
+            {{game}}
+        </button>
+    </section>
+</section>
+<section class="searcherBy_Letter">
+    <h2>by letter:</h2>
+    <section class="buttons">
+        <button class="letterSearcher" *ngFor="let letter of letters" (click)="setGames('firstLetter',letter)">
+            {{letter}}
+        </button>
+    </section>
+</section>
