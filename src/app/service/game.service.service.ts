@@ -32,6 +32,8 @@ export class GameService {
 
   public getById(gameId: Number): Observable<Game> {
     const game = this._gamesDB.find(game => game.id === gameId)
+    console.log('asd');
+
     return of({ ...game } as Game)
   }
 
