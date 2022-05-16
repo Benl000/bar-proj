@@ -26,11 +26,14 @@ export class GameDetailsComponent implements OnInit {
     // console.log(this.route);
 
     this.route.params.subscribe(data => {
-      // console.log(data);
-      // console.log('data', data['id'])
+      console.log(data);
+      console.log('data', +data['id'])
       // console.log(typeof (data['id']));
 
       const gameId = +data['id']
+      const x = this.gameService.getById(gameId).
+        console.log(x);
+
       // this.game = this.gameService.getById(gameId)
     })
     // console.log(x);
