@@ -31,9 +31,8 @@ export class GameService {
   }
 
   public getById(gameId: Number): Observable<Game> {
-    const game = this._gamesDB.find(game => game.id === gameId)
-    console.log('asd');
-
+    this._gamesDB = this.storageService.loadFromStorage('All')
+    const game = this._gamesDB.find(game => game['id'] === gameId)
     return of({ ...game } as Game)
   }
 
@@ -42,25 +41,30 @@ export class GameService {
     this.query()
   }
 
-  public getGame(filter, gameSearch) {
-    const options = {
-      method: 'GET',
-      headers: {
-        'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com',
-        'X-RapidAPI-Key': 'ae1cd3cce6msh869f87ef597f627p1dc760jsn601bbf63d4bf'
-      }
-    };
+  public getGame(currApi, gameSearch) {
+    const games = this.storageService.loadFromStorage(gameSearch)
+    if (!games || !games.length) {
+      const options = {
+        method: 'GET',
+        headers: {
+          'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com',
+          'X-RapidAPI-Key': 'ae1cd3cce6msh869f87ef597f627p1dc760jsn601bbf63d4bf'
+        }
+      };
 
-    fetch('https://free-to-play-games-database.p.rapidapi.com/api/games', options)
-      .then(response => response.json())
-      .then(response => {
+      fetch(`https://free-to-play-games-database.p.rapidapi.com/api/game${currApi}`, options)
+        .then(response => response.json())
+        .then(response => {
 
-        this._gamesDB = response
-        console.log(this._gamesDB);
-        this.storageService.saveToStorage(gameSearch, this._gamesDB)
-        this._games$.next(this._gamesDB)
-      })
-      .catch(err => console.error(err));
+          this._gamesDB = response
+          console.log(this._gamesDB);
+          this.storageService.saveToStorage(gameSearch, this._gamesDB)
+          this._games$.next(this._gamesDB)
+        })
+        .catch(err => console.error(err));
+    } else {
+      this._gamesDB = games
+    }
 
   }
   // public getGame(filter, gameSearch) {

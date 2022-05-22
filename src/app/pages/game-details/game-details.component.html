@@ -2,27 +2,46 @@
     <div class="back" (click)="onBack()">
         ‹
     </div>
-    <section class="game-details-header">
-        <h2>
-            {{game.title}}
-        </h2>
-    </section>
     <section class="game-details-body">
-        <section class="game-details-body-ingredient">
-            <h2>Ingredients:</h2>
-            <section class="ingredient" *ngFor="let idx of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]">
-                <h2>{{getIngredient(idx)}}</h2>
-                <h3>{{getMeasure(idx)}}</h3>
-            </section>
-        </section>
         <img class="game-details-body-img" [src]="game.thumbnail" alt="">
+        <section class="game-details-body-info">
+            <h2 class="game-details-body-info-title">
+                {{game.title}}
+            </h2>
+            <section class="game-details-body-info-details">
+                <div>
+
+                    <h4>Release date:</h4>
+                    <p>{{game.release_date}}</p>
+                </div>
+                <div>
+                    <h4>publisher:</h4>
+                    <p>{{game.publisher}}</p>
+                </div>
+                <div>
+                    <h4>developer:</h4>
+                    <p>{{game.developer}}</p>
+                </div>
+                <div>
+                    <h4>genre:</h4>
+                    <p>{{game.genre}}</p>
+                </div>
+                <div>
+                    <h4>platform:</h4>
+                    <p>{{game.platform}}</p>
+                </div>
+            </section>
+            <a [href]="game.game_url" target="_blank" class="game-details-body-info-link">
+                <button class="btn">
+                    Play now
+                </button>
+            </a>
+
+
+        </section>
     </section>
-    <section class="game-details-info">
+    <section class="game-details-desc">
         <h2>Description:</h2>
         <p>{{game.short_description}}</p>
-    </section>
-    <section class="game-details-footer">
-        <!-- <p>{{game.strAlcoholic}}</p>
-        <p>{{game.strGlass}}</p> -->
     </section>
 </section>

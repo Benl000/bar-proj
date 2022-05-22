@@ -2,54 +2,74 @@
 :host {
     display: flex;
     justify-content: center;
-    align-items: center;
     .game-details {
         display: flex;
         background-color: rgb(23, 23, 25);
-        width: 50vw;
+        width: 70vw;
         flex-direction: column;
         align-items: center;
-        padding: 40px 40px 40px 40px;
-        // border: 1px $clr2 solid;
-        gap: 50px;
-        display: flex;
+        padding: 40px;
+        gap: 15px;
+        font-family: game;
         & .back {
             font-size: 70px;
-            font-family: game;
             cursor: pointer;
             position: absolute;
             left: 10%;
         }
-        &-header {
-            & h2 {
-                border: solid $clr2;
-                border-width: 0 0 1px 1px;
-                font-family: game;
-                font-weight: 500;
-                padding: 10px;
-                font-size: 40px;
-            }
-        }
         &-body {
             display: flex;
             width: 100%;
-            justify-content: space-around;
-            gap: 20px;
-            @media (max-width: 500px) {
+            gap: 5vw;
+            @media (max-width: 1200px) {
+                flex-direction: column;
                 align-items: center;
-                flex-direction: column-reverse;
+                gap: 10px;
             }
-            &-ingredient {
+            &-info {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 text-align: center;
                 justify-content: space-between;
-                width: 20vw;
+                width: 50%;
+                @media (max-width: 1200px) {
+                    width: 80%;
+                }
+                @media (max-width: 600px) {
+                    .btn {
+                        min-width: 10em;
+                    }
+                }
+                &-title {
+                    border: solid $clr2;
+                    border-width: 0 0 1px 1px;
+                    font-family: game;
+                    font-weight: 500;
+                    padding: 10px;
+                    font-size: 40px;
+                }
+                &-details {
+                    display: flex;
+                    flex-direction: column;
+                    width: 90%;
+                    & > * {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        @media (max-width: 600px) {
+                            flex-direction: column;
+                            margin: 5px 0;
+                        }
+                        h4 {
+                            background-color: rgb(47, 47, 48);
+                        }
+                    }
+                }
             }
             &-img {
-                width: 20vw;
-                height: 20vw;
+                width: 50%;
+                object-fit: contain;
             }
         }
         &-info {
@@ -62,3 +82,17 @@
         }
     }
 }
+
+// {
+//     "id": 1,
+//     "title": "Dauntless",
+//     "thumbnail": "https://www.freetogame.com/g/1/thumbnail.jpg",
+//     "short_description": "A free-to-play, co-op action RPG with gameplay similar to Monster Hunter.",
+//     "game_url": "https://www.freetogame.com/open/dauntless",
+//     "genre": "MMORPG",
+//     "platform": "PC (Windows)",
+//     "publisher": "Phoenix Labs",
+//     "developer": "Phoenix Labs, Iron Galaxy",
+//     "release_date": "2019-05-21",
+//     "freetogame_profile_url": "https://www.freetogame.com/dauntless"
+// }

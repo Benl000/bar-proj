@@ -14,23 +14,22 @@ export class HomePageComponent implements OnInit, OnDestroy {
   subscription: Subscription
   games: Game[]
   games$: Observable<Game[]>
-  filter: string = 's'
+  // filter: string = 'All'
 
 
   ngOnInit(): void {
-    const search = this.gameService.currSearch
-    search ? this.getGames({ category: 's', gameName: search }) : this.getGames({ category: 's', gameName: '' })
+    // const search = this.gameService.currSearch
+    // search ? this.getGames({ category: 's', gameName: search }) : this.getGames({ category: 's', gameName: '' })
+    this.getGames({ gameName: 'All' })
   }
 
   ngOnDestroy(): void {
     // this.subscription?.unsubscribe()
   }
 
-  async getGames({ category, gameName }) {
-    console.log(gameName);
-    if (category === 'name') { this.filter = 's' }
-    else if (category === 'firstLetter') { this.filter = 'f' }
-    await this.gameService.getGame(this.filter, gameName)
+  async getGames({ gameName }) {
+    const ApiAllList = 's'
+    await this.gameService.getGame(ApiAllList, gameName)
     this.gameService.query()
     this.games$ = this.gameService.games$
   }

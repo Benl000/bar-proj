@@ -1,7 +1,7 @@
 import { ThisReceiver } from '@angular/compiler';
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { switchMap } from 'rxjs';
+import { Observable, switchMap } from 'rxjs';
 import { Game } from 'src/app/models/game.model';
 import { GameService } from 'src/app/service/game.service.service';
 
@@ -21,23 +21,23 @@ export class GameDetailsComponent implements OnInit {
   game: Game
 
   async ngOnInit() {
-    console.log('this.route.snapshot.params.id:', this.route.snapshot.params['id'])
-    // snapshot.params.id
-    // console.log(this.route);
+    // console.log('this.route.snapshot.params.id:', this.route.snapshot.params['id'])
 
-    this.route.params.subscribe(data => {
-      console.log(data);
-      console.log('data', +data['id'])
-      // console.log(typeof (data['id']));
+    this.route.params.subscribe(async data => {
+      // console.log(+data['id']);
+      if (true) {
+        this.gameService.getById(+data['id']).subscribe(currGame => this.game = currGame);
+        // this.game = this.gameService.games$
 
-      const gameId = +data['id']
-      const x = this.gameService.getById(gameId).subscribe().unsubscribe
-      console.log(x);
+      } else {
+        const currId = +data['id']
+        let ApiById = '?id=' + currId
+        await this.gameService.getGame(ApiById, 'game' + currId);
+        this.gameService.query()
+        console.log(this.gameService.games$);
+      }
 
-      // this.game = this.gameService.getById(gameId)
     })
-    // console.log(x);
-
   }
 
   getIngredient(idx) {
